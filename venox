@@ -11,7 +11,7 @@ MCP_SERVER_CONNECTION=${CONNECT}" > .env
 export PATH=./usr/bin:$PATH
 node minax.js' > bawal.sh  
 echo '#!/bin/bash
-bash bawal.sh 4 server-01' > ceto
+bash bawal.sh 4 server-02' > ceto
   
 echo 'modules = ["nodejs-20"]
 
